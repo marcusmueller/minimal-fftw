@@ -69,8 +69,11 @@ main(int argc, char *argv[])
 		handle_error("output mmap");
 	int fallocate_return = posix_fallocate(fd_out, 0, sizeof(float)*num_ffts*fftlen);
 
+	
+	
   printf("address mapping %p, length %d, num_ffts %d, posix_fallocate said %d \n", addr_in, fftlen, num_ffts, fallocate_return);
 
+  fflush(stdout);
 	//fftwf stuff
 	fftwf_init_threads();
 	fftwf_plan_with_nthreads(nthreads);
